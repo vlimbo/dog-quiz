@@ -1,6 +1,7 @@
 // variables
 const img = document.querySelector(".main__img");
 const btns = document.querySelectorAll(".main__btn");
+let dogIndex = 0;
 
 // data structure
 const dogs = [
@@ -11,17 +12,23 @@ const dogs = [
 
 // functions
 const generateQuestion = () => {
-  let dogIndex = 0;
+  let internalDogIndex = 0;
 
   img.src = dogs[dogIndex].img;
 
   for (let btn of btns) {
-    btn.textContent = dogs[dogIndex].breed;
-    dogIndex++;
+    btn.textContent = dogs[internalDogIndex].breed;
+    internalDogIndex++;
   }
 };
 
-const correct = (answer) => answer === dogs[0].breed;
+const correct = (answer) => answer === dogs[dogIndex].breed;
+
+const disableBtns = () => {
+  for (let btn of btns) {
+    btn.disabled = true;
+  }
+};
 
 //event listeners
 for (let btn of btns) {
@@ -30,6 +37,8 @@ for (let btn of btns) {
       btn.style.background = "lightgreen";
     } else {
       btn.style.background = "lightpink";
+      btns[dogIndex].style.background = "lightgreen";
     }
+    disableBtns();
   });
 }
