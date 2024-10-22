@@ -8,3 +8,17 @@ const dogs = [
   { breed: "Bulldog", img: "dogs/bulldog.webp" },
   { breed: "English Setter", img: "dogss/dog1" },
 ];
+
+// functions
+const generateQuestion = () => {
+  let dogIndex = 0;
+
+  img.src = dogs[dogIndex].img;
+
+  for (let btn of btns) {
+    btn.textContent = dogs[dogIndex].breed;
+    dogIndex++;
+  }
+};
+
+const correct = () => {};
