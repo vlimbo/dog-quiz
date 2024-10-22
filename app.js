@@ -21,4 +21,15 @@ const generateQuestion = () => {
   }
 };
 
-const correct = () => {};
+const correct = (answer) => answer === dogs[0].breed;
+
+//event listeners
+for (let btn of btns) {
+  btn.addEventListener("click", () => {
+    if (correct(btn.textContent)) {
+      btn.style.background = "lightgreen";
+    } else {
+      btn.style.background = "lightpink";
+    }
+  });
+}
