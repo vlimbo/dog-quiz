@@ -17,6 +17,17 @@ const dogs = [
   { breed: "English Setter", img: "dogs/dog1.webp" },
 ];
 
+const dogBreeds = [
+    { breed: "Husky" },
+    { breed: "Beagle" },
+    { breed: "Poodle" },
+    { breed: "Rottweiler" },
+    { breed: "Bernese" },
+    { breed: "Boxer" },
+    { breed: "Broder Collie" },
+    { breed: "Basenji" },
+];
+
 
 // functions
 const generateQuestion = () => {
@@ -29,6 +40,16 @@ const generateQuestion = () => {
     internalDogIndex++;
   }
 };
+
+const randomDog = () => {
+    return dogBreeds[Math.floor(Math.random() * dogBreeds.length)].breed;
+}
+
+const rotateOptions = () => {
+    for (let btn of btns) {
+        btn.textContent = randomDog();
+    }
+}
 
 const correct = (answer) => answer === dogs[dogIndex].breed;
 
