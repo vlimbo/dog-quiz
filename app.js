@@ -40,6 +40,7 @@ const generateQuestion = () => {
   img.src = dogs[dogIndex].img;
     
     rotateOptions();
+    btns[Math.floor(Math.random() * 3)].textContent = dogs[dogIndex].breed;
 
 };
 
@@ -69,6 +70,14 @@ const rotateOptions = () => {
 
 const correct = (answer) => answer === dogs[dogIndex].breed;
 
+const returnIndex = () => {
+    for (let i = 0; i < btns.length; i++) {
+        if (btns[i].textContent === dogs[dogIndex].breed) {
+            return i;
+        }
+    }
+}
+
 const disableBtns = () => {
   for (let btn of btns) {
     btn.disabled = true;
@@ -83,7 +92,7 @@ for (let btn of btns) {
       btn.style.background = "lightgreen";
     } else {
       btn.style.background = "lightpink";
-      btns[dogIndex].style.background = "lightgreen";
+      btns[returnIndex()].style.background = "lightgreen";
     }
     disableBtns();
     dogIndex++;
