@@ -1,7 +1,14 @@
 // variables
 const img = document.querySelector(".main__img");
 const btns = document.querySelectorAll(".main__btn");
-localStorage.setItem('dogIndex', 0);
+let dogIndex;
+console.log(localStorage.getItem('dogIndex'));
+
+if (localStorage.getItem('dogIndex') > 0) {
+    dogIndex = localStorage.getItem('dogIndex');
+} else {
+    dogIndex = 0;
+}
 
 // data structure
 const dogs = [
@@ -14,7 +21,7 @@ const dogs = [
 const generateQuestion = () => {
   let internalDogIndex = 0;
 
-  img.src = dogs[localStorage.getItem('dogIndex')].img;
+  img.src = dogs[dogIndex].img;
 
   for (let btn of btns) {
     btn.textContent = dogs[internalDogIndex].breed;
@@ -22,7 +29,7 @@ const generateQuestion = () => {
   }
 };
 
-const correct = (answer) => answer === dogs[localStorage.getItem('dogIndex')].breed;
+const correct = (answer) => answer === dogs[dogIndex].breed;
 
 const disableBtns = () => {
   for (let btn of btns) {
@@ -45,5 +52,7 @@ for (let btn of btns) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    dogIndex++;
+    localStorage.setItem('dogIndex', dogIndex);
     console.log('worked');
 })
