@@ -42,7 +42,18 @@ const generateQuestion = () => {
 };
 
 const randomDog = () => {
-    return dogBreeds[Math.floor(Math.random() * dogBreeds.length)].breed;
+    const dogArr = [];
+
+    for (let i = 0; i < 3; i++) {
+        let dog = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].breed;
+        if (dogArr.includes(dog)) {
+            i--;
+            continue;
+        } else {
+            dogArr.push(dog);
+        }
+    }
+    console.log(dogArr);
 }
 
 const rotateOptions = () => {
