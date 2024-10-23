@@ -2,7 +2,6 @@
 const img = document.querySelector(".main__img");
 const btns = document.querySelectorAll(".main__btn");
 let dogIndex;
-console.log(localStorage.getItem('dogIndex'));
 
 if (localStorage.getItem('dogIndex') > 0) {
     dogIndex = localStorage.getItem('dogIndex');
@@ -101,6 +100,5 @@ for (let btn of btns) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('worked');
     generateQuestion();
 })
