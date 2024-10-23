@@ -26,6 +26,10 @@ const dogBreeds = [
     { breed: "Boxer" },
     { breed: "Broder Collie" },
     { breed: "Basenji" },
+    { breed: "Shiba Inu" },
+    { breed: "Dobermann" },
+    { breed: "Maltipoo" },
+    { breed: "Sarabi Dog" },
 ];
 
 
@@ -34,11 +38,9 @@ const generateQuestion = () => {
   let internalDogIndex = 0;
 
   img.src = dogs[dogIndex].img;
+    
+    rotateOptions();
 
-  for (let btn of btns) {
-    btn.textContent = dogs[internalDogIndex].breed;
-    internalDogIndex++;
-  }
 };
 
 const randomDog = () => {
@@ -53,12 +55,15 @@ const randomDog = () => {
             dogArr.push(dog);
         }
     }
-    console.log(dogArr);
+    return dogArr;
 }
 
 const rotateOptions = () => {
+    const dogs = randomDog();
+    let currentDog = 0;
     for (let btn of btns) {
-        btn.textContent = randomDog();
+        btn.textContent = dogs[currentDog];
+        currentDog++;
     }
 }
 
