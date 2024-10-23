@@ -14,8 +14,9 @@ if (localStorage.getItem('dogIndex') > 0) {
 const dogs = [
   { breed: "German Shepard", img: "dogs/german.webp" },
   { breed: "Bulldog", img: "dogs/bulldog.webp" },
-  { breed: "English Setter", img: "dogss/dog1" },
+  { breed: "English Setter", img: "dogs/dog1.webp" },
 ];
+
 
 // functions
 const generateQuestion = () => {
@@ -48,11 +49,12 @@ for (let btn of btns) {
       btns[dogIndex].style.background = "lightgreen";
     }
     disableBtns();
+    dogIndex++;
+    localStorage.setItem('dogIndex', dogIndex);
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    dogIndex++;
-    localStorage.setItem('dogIndex', dogIndex);
     console.log('worked');
+    generateQuestion();
 })
