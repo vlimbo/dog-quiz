@@ -30,6 +30,7 @@ const disableBtns = () => {
   }
 };
 
+
 //event listeners
 for (let btn of btns) {
   btn.addEventListener("click", () => {
@@ -42,3 +43,8 @@ for (let btn of btns) {
     disableBtns();
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    dogIndex++;
+    console.log('worked');
+})
